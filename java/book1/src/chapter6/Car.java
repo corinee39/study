@@ -2,33 +2,22 @@ package chapter6;
 
 public class Car {
     // 필드 선언
-    int gas;
+    String model;
+    int speed;
 
-    // 리턴값이 없는 메소드로 매개값을 받아서 gas 필드값을 변경
-    void setGas(int gas) {
-        this.gas = gas;
+    // 생성자 선언
+    Car(String model) {
+        this.model = model;  // 매개변수를 필드에 대입(this 생략 불가)
     }
 
-    // 리턴값이 boolean인 메소드로 gas 필드값이 0이면 false를, 0이 아니면 true를 리턴
-    boolean isLeftGas() {
-        if (gas == 0) {
-            System.out.println("gas가 없습니다.");
-            return false;  // false를 리턴하고 메소드 종료
-        }
-        System.out.println("gas가 있습니다.");
-        return true;  // true를 리턴하고 메소드 종료
+    // 메소드 선언
+    void setSpeed(int speed) {
+        this.speed = speed;  // 매개변수를 필드에 대입(this 생략 불가)
     }
 
-    // 리턴값이 없는 메소드로 gas 필드값이 0이면 return 문으로 메소드를 종료
     void run() {
-        while(true) {
-            if (gas > 0) {
-                System.out.println("달립니다.(gas 잔량 : " + gas + ")");
-                gas -= 1;
-            } else {
-                System.out.println("멈춥니다.(gas 잔량 : " + gas + ")");
-                return;  // 메소드 종료
-            }
-        }
+        // this 생략 가능
+        this.setSpeed(100);
+        System.out.println(this.model + "가 달립니다.(시속:" + this.speed + "km/h)");
     }
 }
