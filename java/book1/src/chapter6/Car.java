@@ -1,23 +1,30 @@
 package chapter6;
 
 public class Car {
-    // 필드 선언
-    String model;
+    // 인스턴스 필드 선언
     int speed;
 
-    // 생성자 선언
-    Car(String model) {
-        this.model = model;  // 매개변수를 필드에 대입(this 생략 불가)
-    }
-
-    // 메소드 선언
-    void setSpeed(int speed) {
-        this.speed = speed;  // 매개변수를 필드에 대입(this 생략 불가)
-    }
-
+    // 인스턴스 메소드 선언
     void run() {
-        // this 생략 가능
-        this.setSpeed(100);
-        System.out.println(this.model + "가 달립니다.(시속:" + this.speed + "km/h)");
+        System.out.println(speed + "으로 달립니다.");
+    }
+
+    static void simulate() {
+        // 객체 생성
+        Car myCar = new Car();
+        // 인스턴스 멤버 사용
+        myCar.speed = 200;
+        myCar.run();
+    }
+
+    public static void main(String[] args) {
+        // 정적 메소드 호출
+        simulate();
+
+        // 객체 생성
+        Car myCar = new Car();
+        // 인스턴스 멤버 사용
+        myCar.speed = 60;
+        myCar.run();
     }
 }
